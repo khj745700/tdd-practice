@@ -1,4 +1,6 @@
 import org.junit.jupiter.api.Test;
+import password.PasswordStrength;
+import password.PasswordStrengthMeter;
 
 
 import static org.junit.jupiter.api.Assertions.*;
