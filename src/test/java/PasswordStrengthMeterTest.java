@@ -7,6 +7,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class PasswordStrengthMeterTest {
 
+    private PasswordStrengthMeter meter = new PasswordStrengthMeter();
+
     /**
      * TDD 방식을 사용할 때 고려해야 할 것
      *
@@ -24,8 +26,13 @@ public class PasswordStrengthMeterTest {
      */
     @Test
     void MeetsAllCriteria_Then_Strong(){
-        PasswordStrengthMeter meter = new PasswordStrengthMeter();
-        PasswordStrength result = meter.meter("ab12!@AB");
-        assertEquals(PasswordStrength.STRONG, result);
+        assertStrength("ab12!@AB", PasswordStrength.STRONG);
+        assertStrength("abc1!Add", PasswordStrength.STRONG);
+    }
+
+
+    private void assertStrength(String password, PasswordStrength expected){
+        PasswordStrength result = meter.meter(password);
+        assertEquals(expected, result);
     }
 }
