@@ -47,6 +47,11 @@ public class PasswordStrengthMeterTest {
         assertStrength("", PasswordStrength.INVALID);
     }
 
+    @Test
+    void meetsOtherCriteria_except_for_Uppercase_Then_Normal() {
+        assertStrength("ab12!@ab", PasswordStrength.NORMAL);
+    }
+
     /**
      * <h1>지속적인 리팩토링</h1>
      *
