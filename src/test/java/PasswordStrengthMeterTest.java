@@ -52,6 +52,11 @@ public class PasswordStrengthMeterTest {
         assertStrength("ab12!@ab", PasswordStrength.NORMAL);
     }
 
+    @Test
+    void meetsOnlyLengthCriteria_Then_Weak() {
+        assertStrength("abcdefgh", PasswordStrength.WEAK);
+    }
+
     /**
      * <h1>지속적인 리팩토링</h1>
      *
