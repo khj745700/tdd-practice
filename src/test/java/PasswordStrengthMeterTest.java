@@ -41,6 +41,12 @@ public class PasswordStrengthMeterTest {
         assertStrength("ab!@ABqwer", PasswordStrength.NORMAL);
     }
 
+    @Test
+    void nullInput_Then_Invalid() {
+        assertStrength(null, PasswordStrength.INVALID);
+        assertStrength("", PasswordStrength.INVALID);
+    }
+
     /**
      * <h1>지속적인 리팩토링</h1>
      *
