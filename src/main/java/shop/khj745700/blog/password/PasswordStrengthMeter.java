@@ -13,6 +13,11 @@ public class PasswordStrengthMeter {
         boolean lengthEnough = meetsLengthCriteria(s);
         boolean containsNum = meetsContainingNumberCriteria(s);
         boolean containsUppercase = meetsContainingUppercaseCriteria(s);
+
+        if(lengthEnough && !containsNum && !containsUppercase) {
+            return PasswordStrength.WEAK;
+        }
+
         if(!lengthEnough) {
             return PasswordStrength.NORMAL;
         }

@@ -1,5 +1,5 @@
 package shop.khj745700.blog.password;
 
 public enum PasswordStrength {
-    STRONG, NORMAL, INVALID,
+    STRONG, NORMAL, INVALID, WEAK,
 }
