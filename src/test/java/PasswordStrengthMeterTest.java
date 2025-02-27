@@ -67,6 +67,12 @@ public class PasswordStrengthMeterTest {
         assertStrength("12345", PasswordStrength.WEAK);
     }
 
+
+    @Test
+    void meetsNoCriteria_Then_Weak() {
+        assertStrength("abc", PasswordStrength.WEAK);
+    }
+
     /**
      * <h1>지속적인 리팩토링</h1>
      *
