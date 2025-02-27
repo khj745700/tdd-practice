@@ -57,6 +57,11 @@ public class PasswordStrengthMeterTest {
         assertStrength("abcdefgh", PasswordStrength.WEAK);
     }
 
+    @Test
+    void meetsOnlyUppercaseCriteria_Then_Weak() {
+        assertStrength("ABZEF", PasswordStrength.WEAK);
+    }
+
     /**
      * <h1>지속적인 리팩토링</h1>
      *
