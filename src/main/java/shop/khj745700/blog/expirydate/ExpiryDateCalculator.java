@@ -13,7 +13,7 @@ public class ExpiryDateCalculator {
         }
 
         if(expectedDate.getDayOfMonth() < payData.firstBillingDate().getDayOfMonth()) {
-            return expectedDate.plusDays(payData.firstBillingDate().getDayOfMonth() - expectedDate.getDayOfMonth());
+            return expectedDate.withDayOfMonth(Math.min(expectedDate.getMonth().maxLength(), payData.firstBillingDate().getDayOfMonth()));
         }
         return expectedDate;
     }
