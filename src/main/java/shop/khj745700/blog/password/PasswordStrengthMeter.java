@@ -6,9 +6,13 @@ public class PasswordStrengthMeter {
 
     public PasswordStrength meter(String s) {
 
-        boolean lengthIsSufficient = meetsLengthCriteria(s);
+        if(s == null || s.isEmpty()) {
+            return PasswordStrength.INVALID;
+        }
+
+        boolean lengthEnough = meetsLengthCriteria(s);
         boolean containsNum = meetsContainingNumberCriteria(s);
-        if(!lengthIsSufficient) {
+        if(!lengthEnough) {
             return PasswordStrength.NORMAL;
         }
 
