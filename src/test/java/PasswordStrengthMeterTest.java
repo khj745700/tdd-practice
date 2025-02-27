@@ -36,6 +36,11 @@ public class PasswordStrengthMeterTest {
         assertStrength("ab12!@C", PasswordStrength.NORMAL);
     }
 
+    @Test
+    void MeetsOtherCriteria_except_for_number_Then_Normal() {
+        assertStrength("ab!@ABqwer", PasswordStrength.NORMAL);
+    }
+
     /**
      * <h1>지속적인 리팩토링</h1>
      *
