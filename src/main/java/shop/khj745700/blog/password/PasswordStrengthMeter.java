@@ -12,11 +12,16 @@ public class PasswordStrengthMeter {
 
         boolean lengthEnough = meetsLengthCriteria(s);
         boolean containsNum = meetsContainingNumberCriteria(s);
+        boolean containsUppercase = meetsContainingUppercaseCriteria(s);
         if(!lengthEnough) {
             return PasswordStrength.NORMAL;
         }
 
         if(!containsNum) {
+            return PasswordStrength.NORMAL;
+        }
+
+        if(!containsUppercase) {
             return PasswordStrength.NORMAL;
         }
 
@@ -35,6 +40,15 @@ public class PasswordStrengthMeter {
             }
         }
 
+        return false;
+    }
+
+    private boolean meetsContainingUppercaseCriteria(String s) {
+        for(char c : s.toCharArray()) {
+            if('A' <= c && c <= 'Z') {
+                return true;
+            }
+        }
         return false;
     }
 }
