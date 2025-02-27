@@ -21,7 +21,7 @@ public class PasswordStrengthMeter {
             meetsCount++;
         }
 
-        if(meetsCount == 1) {
+        if(meetsCount <= 1) {
             return PasswordStrength.WEAK;
         }
 
