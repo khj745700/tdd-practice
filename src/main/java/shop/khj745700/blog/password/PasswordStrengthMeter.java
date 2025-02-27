@@ -5,11 +5,16 @@ public class PasswordStrengthMeter {
     public PasswordStrengthMeter() {}
 
     public PasswordStrength meter(String s) {
-
         if(s == null || s.isEmpty()) {
             return PasswordStrength.INVALID;
         }
+        int meetsCount = getMeetsLengthCriteria(s);
+        if(meetsCount <= 1) return PasswordStrength.WEAK;
+        if(meetsCount == 2) return PasswordStrength.NORMAL;
+        return PasswordStrength.STRONG;
+    }
 
+    private int getMeetsLengthCriteria(String s) {
         int meetsCount = 0;
         if(meetsLengthCriteria(s)) {
             meetsCount++;
@@ -20,16 +25,7 @@ public class PasswordStrengthMeter {
         if(meetsContainingUppercaseCriteria(s)) {
             meetsCount++;
         }
-
-        if(meetsCount <= 1) {
-            return PasswordStrength.WEAK;
-        }
-
-        if(meetsCount == 2) {
-            return PasswordStrength.NORMAL;
-        }
-
-        return PasswordStrength.STRONG;
+        return meetsCount;
     }
 
     private boolean meetsLengthCriteria(String s) {
