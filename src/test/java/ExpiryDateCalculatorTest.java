@@ -12,10 +12,12 @@ public class ExpiryDateCalculatorTest {
 
     @Test
     void 만원_납부_시_한달_뒤_만료일() {
-        LocalDate billingDate1 = LocalDate.of(2020, 1, 1);
-        int payment = 10_000;
-
-        assertExpiryDate(billingDate1, payment, LocalDate.of(2020, 2, 1));
+        assertExpiryDate(
+                LocalDate.of(2020, 1, 1), 10_000,
+                LocalDate.of(2020, 2, 1));
+        assertExpiryDate(
+                LocalDate.of(2020, 5, 1), 10_000,
+                LocalDate.of(2020, 6, 1));
     }
 
 
