@@ -1,4 +1,5 @@
 
+import shop.khj745700.blog.expirydate.ExpiryDateCalculator;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -12,7 +13,7 @@ public class ExpiryDateCalculatorTest {
         int payment = 10_000;
 
         ExpiryDateCalculator calc = new ExpiryDateCalculator();
-        LocalDate expiredDate = calc.cal(billingDate, payment);
+        LocalDate expiredDate = calc.calculateExpiryDate(billingDate, payment);
 
         assertEquals(expiredDate, LocalDate.of(2020, 2, 1));
     }
