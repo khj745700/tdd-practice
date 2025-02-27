@@ -5,7 +5,7 @@ public class PasswordStrengthMeter {
     public PasswordStrengthMeter() {}
 
     public PasswordStrength meter(String s) {
-        if("ab12!@A".equals(s) || "ab12!@C".equals(s)) {
+        if(s.length() < 8) {
             return PasswordStrength.NORMAL;
         }
         return PasswordStrength.STRONG;
