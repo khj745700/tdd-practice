@@ -1,4 +1,4 @@
-package password;
+package shop.khj745700.blog.password;
 
 public class PasswordStrengthMeter {
 
