@@ -30,6 +30,11 @@ public class PasswordStrengthMeterTest {
         assertStrength("abc1!Add", PasswordStrength.STRONG);
     }
 
+    @Test
+    void MeetsOtherCriteria_except_for_Length_Then_Normal() {
+        assertStrength("ab12!@A", PasswordStrength.NORMAL);
+    }
+
 
     private void assertStrength(String password, PasswordStrength expected){
         PasswordStrength result = meter.meter(password);
