@@ -25,19 +25,19 @@ public class PasswordStrengthMeterTest {
      * 따라서 모든 규칙을 충족하는 경우부터 작성하는 것이 좋다.
      */
     @Test
-    void MeetsAllCriteria_Then_Strong(){
+    void meetsAllCriteria_Then_Strong(){
         assertStrength("ab12!@AB", PasswordStrength.STRONG);
         assertStrength("abc1!Add", PasswordStrength.STRONG);
     }
 
     @Test
-    void MeetsOtherCriteria_except_for_Length_Then_Normal() {
+    void meetsOtherCriteria_except_for_Length_Then_Normal() {
         assertStrength("ab12!@A", PasswordStrength.NORMAL);
         assertStrength("ab12!@C", PasswordStrength.NORMAL);
     }
 
     @Test
-    void MeetsOtherCriteria_except_for_number_Then_Normal() {
+    void meetsOtherCriteria_except_for_number_Then_Normal() {
         assertStrength("ab!@ABqwer", PasswordStrength.NORMAL);
     }
 
